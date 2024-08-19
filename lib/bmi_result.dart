@@ -2,9 +2,11 @@ import 'package:bmi_calculator/bmi_deatils.dart';
 import 'package:flutter/material.dart';
 
 class BmiResult extends StatelessWidget {
-  const BmiResult({super.key, required this.bmi});
+  const BmiResult({super.key, required this.bmi,required this.weight,required this.height});
   
   final double bmi;
+  final double weight ;
+  final double height;
   String  bmiStatus(){
     if(bmi <16) return underWeightSever;
     if(bmi >= 16.0 && bmi <= 16.9) return underWeightModerate;
@@ -21,6 +23,19 @@ Color? textTile (String stutas){
     return null;
 }
 
+  showBmi( ){
+    if( bmi > 25){
+      final overweight = weight- (25*height*height);
+      return 'Over Weight --> ${overweight.toStringAsFixed(2)}';
+    }
+   else if( bmi < 18.5){
+      final underweight =  (18.5*height*height) -weight;
+      return 'Under Weight --> ${underweight.toStringAsFixed(2)}';
+    }
+   return 'normal';
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +50,26 @@ Color? textTile (String stutas){
             children: [
               
               Text('This is your BMI',style: TextStyle(fontSize: 20),),
+              SizedBox(height: 20,),
               
               Text('${bmi.toStringAsFixed(1)}',style: TextStyle(fontSize: 40),),
+              SizedBox(height: 20,),
+
+              Card(elevation:5,
+                child: Column(
+                children: [
+                  Text('Your Are ',style: TextStyle(fontSize: 20),),
+                  Text(bmiStatus(),style: TextStyle(fontSize: 20),),
+                ],
+              ),),
+              SizedBox(height: 20,),
+
+              Card(color: Colors.pinkAccent,elevation:5,child: Text(showBmi(), style: TextStyle(fontSize: 20),)),
+              SizedBox(height: 20,),
+
+
               
-              Text('Your Are ',style: TextStyle(fontSize: 20),),
-              
-              Text(bmiStatus(),style: TextStyle(fontSize: 20),),
-              
-              Text('BMI Table', style: TextStyle(fontSize: 20),),
+              Text('BMI Progition Table', style: TextStyle(fontSize: 20),),
 
               Column(
                 children: [
@@ -83,8 +110,8 @@ final bmiStatusMap = {
   'Underweoght ( Moserate thinness' : '16.0 – 16.9',
   'Underweight ( Mild thinness)' : '17.0 – 18.4',
   'Normal range' : '18.5 – 24.9',
-  'Obese (Class I)' : '25.0 – 29.9',
-  'Obese (Class II)' : '30.0 – 34.9',
+   overWeight : '25.0 – 29.9',
+  'Obese (Class I)' : '30.0 – 34.9',
   'Obese (Class II)' :	'35.0 – 39.9',
   obese3 : '≥ 40.0',
 };

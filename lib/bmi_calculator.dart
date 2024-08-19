@@ -26,10 +26,12 @@ class _BmiCalculatorState extends State<BmiCalculator> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+
               keyboardType: TextInputType.number,
               controller: _weightStore,
               decoration: InputDecoration(
-                labelText: 'input your weath',
+                hintText: 'input weight  (0-9)',
+                labelText: 'input your weath (kg)',
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                 prefixIcon: Icon(Icons.monitor_weight_outlined),
@@ -44,20 +46,33 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               keyboardType: TextInputType.number,
               controller: _heightStore,
               decoration: InputDecoration(
-                labelText: 'input your height',
+                labelText: 'input your height (inchi)',
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                 prefixIcon: Icon(Icons.monitor_weight_outlined),
                 enabled: true,
+                hintText: 'Input height  (0-9)'
                 // errorText: 'jjj',
               ),
             ),
             SizedBox(
               height: 10,
             ),
-            OutlinedButton(onPressed: _showResult, child: Text('Calculate')),
+            OutlinedButton(onPressed: _showResult ,
+
+                child: Text('Calculator'))
           ],
         ),
+      ),
+      floatingActionButton:FloatingActionButton(
+        onPressed: () {
+          showDialog(context: context, builder: (context) {
+            return AlertDialog(
+              content: Text(_heightStore.text),
+            );
+          },);
+
+        } ,child: Icon(Icons.touch_app),
       ),
 
     );
@@ -84,7 +99,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
     final bmi = weight / (height * height);
 
     // showMsg(context, bmi.toStringAsFixed(1));
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> BmiResult(bmi: bmi,)));
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> BmiResult(bmi: bmi,weight: weight,height: height,)));
   }
 }
 showMsg(BuildContext context, String massge) {
