@@ -1,6 +1,5 @@
 import 'package:bmi_calculator/bmi_result.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class BmiCalculator extends StatefulWidget {
   const BmiCalculator({super.key});
@@ -17,7 +16,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
         centerTitle: false,
       ),
       body: Padding(
@@ -31,15 +30,15 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               controller: _weightStore,
               decoration: InputDecoration(
                 hintText: 'input weight  (0-9)',
-                labelText: 'input your weath (kg)',
+                labelText: 'input your weight(kg)',
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                prefixIcon: Icon(Icons.monitor_weight_outlined),
+                prefixIcon:const Icon(Icons.monitor_weight_outlined),
                 enabled: true,
                 // errorText: 'jjj',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
@@ -49,18 +48,18 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 labelText: 'input your height (inchi)',
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                prefixIcon: Icon(Icons.monitor_weight_outlined),
+                prefixIcon:const Icon(Icons.monitor_weight_outlined),
                 enabled: true,
                 hintText: 'Input height  (0-9)'
                 // errorText: 'jjj',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             OutlinedButton(onPressed: _showResult ,
 
-                child: Text('Calculator'))
+                child:const Text('Calculator'))
           ],
         ),
       ),
@@ -72,7 +71,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             );
           },);
 
-        } ,child: Icon(Icons.touch_app),
+        } ,child:const Icon(Icons.touch_app),
       ),
 
     );
@@ -102,9 +101,9 @@ class _BmiCalculatorState extends State<BmiCalculator> {
     Navigator.push(context, MaterialPageRoute(builder: (context)=> BmiResult(bmi: bmi,weight: weight,height: height,)));
   }
 }
-showMsg(BuildContext context, String massge) {
+showMsg(BuildContext context, String massage) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    content: Text(massge),
+    content: Text(massage),
     elevation: 10,
     backgroundColor: Colors.black,
 

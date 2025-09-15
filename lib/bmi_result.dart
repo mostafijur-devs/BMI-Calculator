@@ -25,12 +25,12 @@ Color? textTile (String stutas){
 
   showBmi( ){
     if( bmi > 25){
-      final overweight = weight- (25*height*height);
-      return 'Over Weight --> ${overweight.toStringAsFixed(2)}';
+      final overweight = bmi - 25;
+      return 'Over Weight --> ${overweight.toStringAsFixed(2)}%';
     }
    else if( bmi < 18.5){
-      final underweight =  (18.5*height*height) -weight;
-      return 'Under Weight --> ${underweight.toStringAsFixed(2)}';
+      final underweight =  18.5 -bmi;
+      return 'Under Weight --> ${underweight.toStringAsFixed(2)}%';
     }
    return 'normal';
   }
@@ -39,8 +39,9 @@ Color? textTile (String stutas){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        title: Text('BMI Result'),
+        title: const Text('BMI Result'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -48,31 +49,32 @@ Color? textTile (String stutas){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              
-              Text('This is your BMI',style: TextStyle(fontSize: 20),),
-              SizedBox(height: 20,),
-              
-              Text('${bmi.toStringAsFixed(1)}',style: TextStyle(fontSize: 40),),
-              SizedBox(height: 20,),
+
+              const Text('This is your BMI',style: TextStyle(fontSize: 20),),
+              const SizedBox(height: 20,),
+
+              Text(bmi.toStringAsFixed(1),style:const TextStyle(fontSize: 40),),
+              const  SizedBox(height: 20,),
 
               Card(elevation:5,
                 child: Column(
                 children: [
-                  Text('Your Are ',style: TextStyle(fontSize: 20),),
-                  Text(bmiStatus(),style: TextStyle(fontSize: 20),),
+                  const Text('Your Are ',style: TextStyle(fontSize: 20),),
+                  Text(bmiStatus(),style:const TextStyle(fontSize: 20),),
                 ],
               ),),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
-              Card(color: Colors.pinkAccent,elevation:5,child: Text(showBmi(), style: TextStyle(fontSize: 20),)),
-              SizedBox(height: 20,),
+              Card(color: Colors.pinkAccent,elevation:5,child: Text(showBmi(), style:const TextStyle(fontSize: 20),)),
+              const  SizedBox(height: 20,),
 
 
-              
-              Text('BMI Progition Table', style: TextStyle(fontSize: 20),),
+
+              const Text('BMI Pronation Table', style: TextStyle(fontSize: 20),),
 
               Column(
                 children: [
+
                   for ( final key in bmiStatusMap.keys)
                     Card(
                       elevation:30,
@@ -85,12 +87,12 @@ Color? textTile (String stutas){
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text('${bmiStatusMap[key]}',style: TextStyle(fontSize: 14),),
+                              Text('${bmiStatusMap[key]}',style:const  TextStyle(fontSize: 14),),
                               TextButton(onPressed: (){
                                 Navigator.push(context,
-                                    MaterialPageRoute(builder: (context)=> BmiDeatils()));
+                                    MaterialPageRoute(builder: (context)=> const BmiDetails()));
                               },
-                                  child: Text('More details'))
+                                  child: const Text('More details'))
                             ],
                           ),
                         ),
@@ -117,7 +119,7 @@ final bmiStatusMap = {
 };
 
 const underWeightSever = 'Underweight (Severe thinness';
-const underWeightModerate = 'Underweoght ( Moserate thinness';
+const underWeightModerate = 'Underweight ( Moderate thinness';
 const underWeightMild = 'Underweight ( Mild thinness)';
 const normalRange = 'Normal range';
 const overWeight = 'Overweight (Pre-obese)';

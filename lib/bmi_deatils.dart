@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class BmiDeatils extends StatelessWidget {
-  const BmiDeatils({super.key});
+class BmiDetails extends StatelessWidget {
+  const BmiDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI detials'),
+        title: const Text('BMI details'),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [Text(text
           )],
@@ -18,7 +18,7 @@ class BmiDeatils extends StatelessWidget {
     );
   }
 }
-final text = '''
+const text = '''
 Main menu
 
 WikipediaThe Free Encyclopedia
@@ -95,7 +95,7 @@ in
 2
 ×
 703
-{\displaystyle \mathrm {BMI} ={\frac {{\text{mass}}_{\text{kg}}}{{{\text{height}}_{\text{m}}}^{2}}}={\frac {{\text{mass}}_{\text{lb}}}{{{\text{height}}_{\text{in}}}^{2}}}\times 703}
+{display style math {BMI} ={\frac {{\text{mass}}_{\text{kg}}}{{{\text{height}}_{\text{m}}}^{2}}}={\frac {{\text{mass}}_{\text{lb}}}{{{\text{height}}_{\text{in}}}^{2}}}\times 703}
 BMI provides a simple numeric measure of a person's thickness or thinness, allowing health professionals to discuss weight problems more objectively with their patients. BMI was designed to be used as a simple means of classifying average sedentary (physically inactive) populations, with an average body composition.[11] For such individuals, the BMI value recommendations as of 2014 are as follows: 18.5 to 24.9 kg/m2 may indicate optimal weight, lower than 18.5 may indicate underweight, 25 to 29.9 may indicate overweight, and 30 or more may indicate obese.[9][10] Lean male athletes often have a high muscle-to-fat ratio and therefore a BMI that is misleadingly high relative to their body-fat percentage.[10]
 
 Categories
@@ -294,7 +294,7 @@ g
 h
 t
 E
-{\displaystyle mass/height^{E}}.[66]
+{display style mass/height^{E}}.[66]
 
 An exponent of 5/2 or 2.5 was proposed by Quetelet in the 19th century:[4]
 
@@ -314,7 +314,7 @@ kg
 height
 m
 2.5
-{\displaystyle \mathrm {BMI} _{\text{new}}=1.3\times {\frac {{\text{mass}}_{\text{kg}}}{{\text{height}}_{\text{m}}^{2.5}}}}
+{display style math {BMI} _{\text{new}}=1.3\times {\frac {{\text{mass}}_{\text{kg}}}{{\text{height}}_{\text{m}}^{2.5}}}}
 The scaling factor of 1.3 was determined to make the proposed new BMI formula align with the traditional BMI formula for adults of average height, while the exponent of 2.5 is a compromise between the exponent of 2 in the traditional formula for BMI and the exponent of 3 that would be expected for the scaling of weight (which at constant density would theoretically scale with volume, i.e., as the cube of the height) with height. In Trefethen's analysis, an exponent of 2.5 was found to fit empirical data more closely with less distortion than either an exponent of 2 or 3.
 
 BMI prime (exponent of 2, normalization factor)
@@ -351,8 +351,8 @@ WC
 6
 )
 BSA VTC
-{\displaystyle \mathrm {SBSI} ={\frac {({\text{H}}^{7/4})({\text{WC}}^{5/6})}{\text{BSA VTC}}}}
-A simplified, dimensionless form of SBSI, known as SBSI*, has also been developed.[74]
+{display style math {SUSI} ={\frac {({\text{H}}^{7/4})({\text{WC}}^{5/6})}{\text{BSA VTC}}}}
+A simplified, dimensionless form of SUSI, known as SUSI*, has also been developed.[74]
 
 S
 B
@@ -368,7 +368,7 @@ H
 WC
 )
 BSA VTC
-{\displaystyle \mathrm {SBSI^{\star }} ={\frac {({\text{H}}^{2})({\text{WC}})}{\text{BSA VTC}}}}
+{display style math {SUSI^{ star }} ={\frac {({\text{H}}^{2})({\text{WC}})}{\text{BSA VTC}}}}
 Modified body mass index
 Within some medical contexts, such as familial amyloid polyneuropathy, serum albumin is factored in to produce a modified body mass index (mBMI). The mBMI can be obtained by multiplying the BMI by serum albumin, in grams per litre.[75]
 
